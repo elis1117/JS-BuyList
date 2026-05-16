@@ -1,17 +1,239 @@
 .product-item {
-	background-color: gray;
-	display: inline-block;
-	height: 25px;
-	padding: 5px;
-	border-radius: 5px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px;
+  border-bottom: 1px solid #ddd; 
+}
+
+.product-controls {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center;
+  gap: 8px; 
+}
+
+.product-controls button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+}
+.btn-minus {
+  background-color: #db2828;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; 
+}
+
+.btn-plus {
+  background-color: #21ba45;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.btn-delete {
+  background-color: #db2828;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px; 
+}
+
+.btn-status {
+  background-color: #f9f9f9 !important; 
+  color: #333 !important;
+  border: 1px solid #ccc !important; 
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 4px;
+  box-shadow: none !important; 
+  font-weight: normal !important;
+}
+
+.product-name {
+  font-size: 30px;
+}
+
+.add-item-section {
+  display: flex;
+  padding: 15px;
+  border-bottom: 2px solid #eee; 
+}
+
+
+.add-item-section input {
+  flex-grow: 1; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none; 
+  border-radius: 4px 0 0 4px; 
+  font-size: 16px;
+  outline: none;
+}
+
+
+.btn-add {
+  background-color: #2185d0; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 0 4px 4px 0; 
+  cursor: pointer;
 }
 
 .amount {
-	background-color: yellow;
-	border-radius: 10px;
+  background-color: #e4e4e4;
+  color: #333;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: #e4e4e4; 
+  font-family: Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+}
+
+.left-column, .right-column {
+  background-color: #ffffff;
+  border-radius: 6px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+}
+
+.right-column {
+  padding: 20px;
+}
+
+.right-column h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.stats-container {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.stat-badge {
+  background-color: #e4e4e4;
+  padding: 5px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.stat-amount {
+  background-color: #f2711c;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.is-bought {
+  text-decoration: line-through;
+}
+
+.badge {
+	position: fixed;
+	bottom: 0;
+	left: 20px;
+	background-color: #4b0082;
+	color: white;
+	padding: 20px;
+	border-radius: 15px 15px 0 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  	transform: translateY(25px); 
+  	transition: transform 0.4s ease, background-color 0.4s ease;
+}
+.badge:hover {
+	background-color: #7b2cbf;
+	transform: translateY(0);
+}
+.badge-author {
+  opacity: 0; 
+  transition: opacity 0.4s ease;
+}
+
+.badge:hover .badge-author {
+  opacity: 1; 
+}
+@media print {
+	.badge {
+		background-color: white;
+		border: 2px solid #4b0082;
+		color: black;
+		transform: translateY(0);
+		}
+	.badge-title {
+		display: none;
+	}
+	.badge-author{
+		opacity: 1;
+	}
+}
+[data-tooltip] {
+	position: relative;
+	cursor: pointer;
+}
+[data-tooltip]::after {
+	content: attr(data-tooltip);
 	
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	text-align: center;
+	background-color: #4b0082;
+	color: white;
+	padding: 6px 10px;
+	border-radius: 8px;
+	font-size: 12px;
+	white-space: nowrap;
+
+	position: absolute;
+	bottom: 130%;
+	left: 50%;
+	transform: translateX(-50%) scale(0);
+	transform-origin: bottom center;
+	opacity: 0;
+	pointer-events: none;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+[data-tooltip]:hover::after {
+	transform: translateX(-50%) scale(1);
+	opacity: 1;
+}
+.main-container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px; 
+  max-width: 1000px; 
+  margin: 20px auto; 
+}
+
+/*для телефона*/
+@media (max-width: 650px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
 }
