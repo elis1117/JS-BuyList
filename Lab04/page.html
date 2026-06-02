@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 6 — Live-фільтр карток</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 960px; margin: 2rem auto; padding: 1rem; line-height: 1.5; }
+    h1 { color: #2050a0; }
+    #search {
+      width: 100%; padding: 10px; font-size: 1.1rem;
+      border: 1px solid #ccd; border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    #results-count { color: #555; margin-bottom: 1rem; }
+    #cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .card h3 { margin: 0 0 0.5rem; color: #2050a0; }
+    .card p { margin: 0; color: #555; font-size: 0.95rem; }
+    .card.hidden { display: none; }
+    mark { background: #ffe066; }
+    #no-results {
+      padding: 2rem; text-align: center;
+      color: #888;
+    }
+    #no-results.hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h1>Технології курсу</h1>
+
+  <input id="search" type="text" placeholder="Шукати...">
+  <p id="results-count">Знайдено: 20 з 20</p>
+
+  <div id="cards">
+    <article class="card" data-title="HTML"><h3>HTML</h3><p>Мова розмітки гіпертексту</p></article>
+    <article class="card" data-title="CSS"><h3>CSS</h3><p>Каскадні таблиці стилів</p></article>
+    <article class="card" data-title="JavaScript"><h3>JavaScript</h3><p>Мова поведінки веб-сторінки</p></article>
+    <article class="card" data-title="TypeScript"><h3>TypeScript</h3><p>JavaScript з типами</p></article>
+    <article class="card" data-title="DOM"><h3>DOM</h3><p>Document Object Model</p></article>
+    <article class="card" data-title="HTTP"><h3>HTTP</h3><p>Протокол передачі гіпертексту</p></article>
+    <article class="card" data-title="HTTPS"><h3>HTTPS</h3><p>HTTP з шифруванням TLS</p></article>
+    <article class="card" data-title="AJAX"><h3>AJAX</h3><p>Асинхронні запити з JavaScript</p></article>
+    <article class="card" data-title="JSON"><h3>JSON</h3><p>Формат обміну даними</p></article>
+    <article class="card" data-title="REST"><h3>REST</h3><p>Архітектурний стиль для API</p></article>
+    <article class="card" data-title="WCAG"><h3>WCAG</h3><p>Стандарт веб-доступності</p></article>
+    <article class="card" data-title="ARIA"><h3>ARIA</h3><p>Accessible Rich Internet Applications</p></article>
+    <article class="card" data-title="ECMAScript"><h3>ECMAScript</h3><p>Офіційний стандарт JavaScript</p></article>
+    <article class="card" data-title="Node.js"><h3>Node.js</h3><p>JavaScript на сервері</p></article>
+    <article class="card" data-title="React"><h3>React</h3><p>Бібліотека для UI</p></article>
+    <article class="card" data-title="Vue"><h3>Vue</h3><p>Прогресивний фреймворк</p></article>
+    <article class="card" data-title="Git"><h3>Git</h3><p>Розподілена система контролю версій</p></article>
+    <article class="card" data-title="GitHub"><h3>GitHub</h3><p>Хостинг Git-репозиторіїв</p></article>
+    <article class="card" data-title="DevTools"><h3>DevTools</h3><p>Інструменти розробника у браузері</p></article>
+    <article class="card" data-title="Moodle"><h3>Moodle</h3><p>Платформа дистанційного навчання</p></article>
+  </div>
+
+  <div id="no-results" class="hidden">
+    Нічого не знайдено
+  </div>
+
+  <script src="filter.js"></script>
+</body>
+</html>
